@@ -2,7 +2,6 @@
 
 import { useState } from "react"
 import Image from "next/image"
-import { ChevronDown } from "lucide-react"
 import { Reveal } from "@/components/reveal"
 
 const STOPS = [
@@ -171,12 +170,7 @@ export function Journey() {
               data-cursor={expanded ? "less" : "more"}
               className="group inline-flex items-center gap-2 rounded-full border border-border px-7 py-3 font-mono text-[0.7rem] uppercase tracking-[0.2em] text-foreground transition-colors hover:border-primary hover:bg-primary hover:text-primary-foreground"
             >
-              {expanded ? "Show Less" : "Show More"}
-              <ChevronDown
-                className={`h-4 w-4 transition-transform duration-300 ${
-                  expanded ? "rotate-180" : ""
-                }`}
-              />
+              {expanded ? "Collapse the Journey ↑" : "Continue the Pilgrimage ↓"}
             </button>
           </div>
         )}
