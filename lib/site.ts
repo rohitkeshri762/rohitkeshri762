@@ -14,7 +14,7 @@ export const WHATSAPP_LINK = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIC
 export const SOCIAL_LINKS = {
   instagram: 'https://www.instagram.com/kedarfly.in/',
   facebook: 'https://www.facebook.com/kedarfly.in',
-  x: 'https://x.com/kedarfly_in',
+  x: 'https://x.com/kedarflyin',
 }
 
 // Authenticity & Compliance
