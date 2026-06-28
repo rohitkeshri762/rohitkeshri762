@@ -1,0 +1,172 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --font-sans: var(--font-inter), 'Inter Fallback', sans-serif;
+  --font-serif: var(--font-cormorant), 'Cormorant Garamond Fallback', serif;
+  --font-mono: var(--font-dm-sans), 'DM Sans Fallback', sans-serif;
+  --font-heading: var(--font-cormorant), 'Cormorant Garamond Fallback', serif;
+  --font-display: var(--font-cinzel), 'Cinzel Fallback', serif;
+  --font-num: var(--font-dm-sans), 'DM Sans Fallback', sans-serif;
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --color-himalaya: var(--himalaya);
+  --color-temple: var(--temple);
+  --color-saffron: var(--saffron);
+  --color-gold: var(--gold);
+
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+}
+
+:root {
+  color-scheme: light;
+  /* Brand palette */
+  --background: #f8f5f0;
+  --foreground: #181818;
+  --card: #ffffff;
+  --card-foreground: #181818;
+  --popover: #ffffff;
+  --popover-foreground: #181818;
+  --primary: #0d1b2a;
+  --primary-foreground: #f8f5f0;
+  --secondary: #4e342e;
+  --secondary-foreground: #f8f5f0;
+  --muted: #efe9e0;
+  --muted-foreground: #6b7280;
+  --accent: #d97706;
+  --accent-foreground: #f8f5f0;
+  --destructive: #b91c1c;
+  --border: #e3dccf;
+  --input: #e3dccf;
+  --ring: #d97706;
+
+  --himalaya: #0d1b2a;
+  --temple: #4e342e;
+  --saffron: #d97706;
+  --gold: #bfa15a;
+
+  --radius: 0.5rem;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: 'ss01', 'cv01';
+  }
+  html {
+    @apply font-sans;
+    -webkit-font-smoothing: antialiased;
+  }
+}
+
+@layer utilities {
+  .font-heading {
+    font-family: var(--font-heading);
+  }
+  .font-display {
+    font-family: var(--font-display);
+  }
+  .font-num {
+    font-family: var(--font-num);
+  }
+  .text-balance {
+    text-wrap: balance;
+  }
+  .text-pretty {
+    text-wrap: pretty;
+  }
+}
+
+/* Hide default cursor on desktop pointer devices for custom cursor */
+@media (hover: hover) and (pointer: fine) {
+  .custom-cursor-active * {
+    cursor: none !important;
+  }
+}
+
+/* Marquee */
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+.animate-marquee {
+  animation: marquee var(--marquee-duration, 40s) linear infinite;
+}
+
+/* Bell swing for loader */
+@keyframes bell-swing {
+  0%,
+  100% {
+    transform: rotate(-14deg);
+  }
+  50% {
+    transform: rotate(14deg);
+  }
+}
+.animate-bell {
+  transform-origin: top center;
+  animation: bell-swing 1.6s ease-in-out infinite;
+}
+
+/* subtle floating snow/particles */
+@keyframes float-up {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 0;
+  }
+  20% {
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateY(-120px) scale(0.4);
+    opacity: 0;
+  }
+}
+
+::selection {
+  background: var(--saffron);
+  color: var(--primary-foreground);
+}
+
+/* Thin elegant scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--muted);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--gold);
+  border-radius: 99px;
+}
