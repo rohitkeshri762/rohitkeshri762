@@ -11,6 +11,12 @@ export const WHATSAPP_LINK = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIC
   'Namaste KedarFly, I would like to plan a sacred pilgrimage journey.',
 )}`
 
+export const SOCIAL_LINKS = {
+  instagram: 'https://www.instagram.com/kedarfly.in/',
+  facebook: 'https://www.facebook.com/kedarfly.in',
+  x: 'https://x.com/kedarfly_in',
+}
+
 // Authenticity & Compliance
 export const GST_NO = '09EPTPR4327K1ZZ'
 export const MSME_NO = 'UDYAM-UP-28-0225552'

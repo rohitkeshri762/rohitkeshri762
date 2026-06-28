@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { Phone, MessageCircle, MapPin, Mail } from 'lucide-react'
+import { Phone, MessageCircle, MapPin, Mail, Instagram, Facebook } from 'lucide-react'
 import {
   WHATSAPP_LINK,
   PHONE_TEL,
@@ -12,7 +12,16 @@ import {
   MSME_NO,
   OFFICE_LOCATION,
   PACKAGES,
+  SOCIAL_LINKS,
 } from '@/lib/site'
+
+function XIcon({ className }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" fill="currentColor" className={className} aria-hidden="true">
+      <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+    </svg>
+  )
+}
 
 const footerNav = [
   {
@@ -98,6 +107,36 @@ export function SiteFooter() {
                 <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-saffron" />
                 <span>{OFFICE_LOCATION}</span>
               </span>
+            </div>
+
+            <div className="mt-6 flex items-center gap-3">
+              <a
+                href={SOCIAL_LINKS.instagram}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Follow KedarFly on Instagram"
+                className="flex h-10 w-10 items-center justify-center rounded-full border border-background/20 text-background/80 transition-colors hover:border-saffron hover:bg-saffron hover:text-primary-foreground"
+              >
+                <Instagram className="h-4 w-4" />
+              </a>
+              <a
+                href={SOCIAL_LINKS.facebook}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Follow KedarFly on Facebook"
+                className="flex h-10 w-10 items-center justify-center rounded-full border border-background/20 text-background/80 transition-colors hover:border-saffron hover:bg-saffron hover:text-primary-foreground"
+              >
+                <Facebook className="h-4 w-4" />
+              </a>
+              <a
+                href={SOCIAL_LINKS.x}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Follow KedarFly on X"
+                className="flex h-10 w-10 items-center justify-center rounded-full border border-background/20 text-background/80 transition-colors hover:border-saffron hover:bg-saffron hover:text-primary-foreground"
+              >
+                <XIcon className="h-4 w-4" />
+              </a>
             </div>
           </div>
 

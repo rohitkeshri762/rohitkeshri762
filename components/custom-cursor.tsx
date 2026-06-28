@@ -109,7 +109,7 @@ export function CustomCursor() {
           {/* flame */}
           <path
             d="M12 1.5c1.4 1.9 2.6 3.6 2.6 5.4a2.6 2.6 0 0 1-5.2 0c0-1.1.5-2.1 1-2.9-.1.9.3 1.7 1 1.9-.2-1.5.2-3 .6-4.4Z"
-            fill="var(--saffron)"
+            fill="#FFD23F"
           />
           {/* lamp bowl */}
           <path
