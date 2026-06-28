@@ -1,6 +1,8 @@
 "use client"
 
+import { useState } from "react"
 import Image from "next/image"
+import { ChevronDown } from "lucide-react"
 import { Reveal } from "@/components/reveal"
 
 const STOPS = [
@@ -73,6 +75,9 @@ const STOPS = [
 ]
 
 export function Journey() {
+  const [expanded, setExpanded] = useState(false)
+  const visibleStops = expanded ? STOPS : STOPS.slice(0, 5)
+
   return (
     <section className="relative bg-background py-24 md:py-36">
       <div className="mx-auto max-w-7xl px-6">
@@ -125,7 +130,7 @@ export function Journey() {
         </div>
 
         <div className="mt-16 space-y-px">
-          {STOPS.map((stop, i) => (
+          {visibleStops.map((stop, i) => (
             <Reveal key={stop.name} delay={i * 0.05}>
               <div
                 data-cursor="view"
@@ -158,6 +163,23 @@ export function Journey() {
             </Reveal>
           ))}
         </div>
+
+        {STOPS.length > 5 && (
+          <div className="mt-12 flex justify-center">
+            <button
+              onClick={() => setExpanded((prev) => !prev)}
+              data-cursor={expanded ? "less" : "more"}
+              className="group inline-flex items-center gap-2 rounded-full border border-border px-7 py-3 font-mono text-[0.7rem] uppercase tracking-[0.2em] text-foreground transition-colors hover:border-primary hover:bg-primary hover:text-primary-foreground"
+            >
+              {expanded ? "Show Less" : "Show More"}
+              <ChevronDown
+                className={`h-4 w-4 transition-transform duration-300 ${
+                  expanded ? "rotate-180" : ""
+                }`}
+              />
+            </button>
+          </div>
+        )}
       </div>
     </section>
   )
